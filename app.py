@@ -14,7 +14,7 @@ st.set_page_config(page_title="NAMA Compliance Agent", layout="wide", page_icon=
 
 # --- 1. API KEY SETUP ---
 # Replace with st.secrets["GEMINI_API_KEY"] in production
-api_key = "AIzaSyCxmfo_CZlZbaStMD-Tut8XNE1oKgBxoC0"  
+api_key =  st.secrets["auth_key"] 
 
 # --- CONSTANTS ---
 REQUIRED_DOCS = [
@@ -243,4 +243,5 @@ if st.session_state.analysis_result:
 
         # 5. FOUND DOCUMENTS TABLE
         with st.expander("📂 View Submitted Documents List"):
+
              st.dataframe(pd.DataFrame(res.get('found_documents', [])))
