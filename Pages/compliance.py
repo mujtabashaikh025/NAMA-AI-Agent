@@ -9,7 +9,7 @@ st.set_page_config(page_title="Spec Compliance Extractor", layout="wide")
 st.image("nama-logo.png")
 
 # REPLACE with your actual API Key
-api_key = "AIzaSyA3DXOahkkurKxftXXWHbZdGaBBSdqETo4" 
+api_key =  st.secrets["auth_key"] 
 
 # --- 2. HELPER FUNCTIONS ---
 
@@ -116,4 +116,5 @@ if uploaded_file and st.button("Generate Compliance Table"):
                     mime="text/csv",
                 )
             else:
+
                 st.warning("Could not extract a table. Please ensure the PDF is not password protected.")
