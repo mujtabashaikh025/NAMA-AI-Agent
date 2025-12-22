@@ -16,6 +16,9 @@ st.set_page_config(page_title="NAMA Compliance Agent", layout="wide", page_icon=
 # Replace with st.secrets["GEMINI_API_KEY"] in production
 api_key =  st.secrets["auth_key"] 
 
+compliance_page = st.Page(page="pages/compliance.py")
+pg=st.navigation(pages=[compliance_page])
+pg.run()
 # --- CONSTANTS ---
 REQUIRED_DOCS = [
     "Fees application receipt copy",
@@ -245,3 +248,4 @@ if st.session_state.analysis_result:
         with st.expander("📂 View Submitted Documents List"):
 
              st.dataframe(pd.DataFrame(res.get('found_documents', [])))
+
