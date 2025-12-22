@@ -85,7 +85,7 @@ def verify_wras_online(wras_id):
 def analyze_documents(files_data, key):
     try:
         genai.configure(api_key=key)
-        model = genai.GenerativeModel('gemini-2.5-flash') 
+        model = genai.GenerativeModel('gemini-3-pro-preview') 
         today_str = date.today().strftime("%Y-%m-%d")
 
         system_prompt = f"""
@@ -244,6 +244,7 @@ if st.session_state.analysis_result:
         with st.expander("📂 View Submitted Documents List"):
 
              st.dataframe(pd.DataFrame(res.get('found_documents', [])))
+
 
 
 
