@@ -23,7 +23,7 @@ def get_compliance_table(pdf_bytes, key):
     """Sends the PDF file DIRECTLY to Gemini (no local text extraction needed)."""
     try:
         genai.configure(api_key=key)
-        model = genai.GenerativeModel('gemini-2.5-flash')
+        model = genai.GenerativeModel('gemini-3-pro-preview')
         
         system_prompt = """
         You are a Technical QA Engineer reviewing a scanned Vendor Specification Document.
@@ -118,3 +118,4 @@ if uploaded_file and st.button("Generate Compliance Table"):
             else:
 
                 st.warning("Could not extract a table. Please ensure the PDF is not password protected.")
+
