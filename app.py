@@ -10,7 +10,7 @@ from datetime import datetime, date
 
 # --- CONFIGURATION ---
 st.image("nama-logo.png")
-st.set_page_config(page_title="NAMA Compliance Agent", layout="wide", page_icon="🛡️")
+st.set_page_config(page_title="NAMA Compliance Agent", layout="wide", page_icon="nama-logo.png")
 
 # --- 1. API KEY SETUP ---
 # Replace with st.secrets["GEMINI_API_KEY"] in production
@@ -244,5 +244,6 @@ if st.session_state.analysis_result:
         with st.expander("📂 View Submitted Documents List"):
 
              st.dataframe(pd.DataFrame(res.get('found_documents', [])))
+
 
 
