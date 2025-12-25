@@ -11,7 +11,17 @@ from datetime import datetime, date
 # --- CONFIGURATION ---
 st.image("nama-logo.png")
 st.set_page_config(page_title="NAMA Compliance Agent", layout="wide", page_icon="nama-logo.png")
+# --- HIDE STREAMLIT STYLE ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
+# ... rest of your code ...
 # --- 1. API KEY SETUP ---
 # Replace with st.secrets["GEMINI_API_KEY"] in production
 api_key =  st.secrets["auth_key"] 
@@ -244,6 +254,7 @@ if st.session_state.analysis_result:
         with st.expander("📂 View Submitted Documents List"):
 
              st.dataframe(pd.DataFrame(res.get('found_documents', [])))
+
 
 
 
